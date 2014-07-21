@@ -1,0 +1,91 @@
+<project name="SoapService" default="release" basedir=".">
+	<property name="jaxws-version" value="2.0" />
+	<property name="jar.file" value="${ant.project.name}.jar"/>
+	<property name="generated" value="generated" />
+	<property name="generated.src" value="${generated}/src" />
+	<property name="generated.wsdl" value="${generated}/wsdl" />
+	<property name="classes.dir" value="bin" />
+	<property name="src.dir" value="src" />
+	<property name="wsgen.exec" value="wsgen" />
+	<property name="main-class" value="ss14xmlproject.SoapService" />
+
+	<path id="class.path">
+		<fileset dir="lib">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<target name="clean">
+		<delete failonerror="false" includeemptydirs="true">
+			<fileset dir="${generated.src}" />
+			<fileset dir="${generated.wsdl}" />
+			<fileset dir="release" />
+			<fileset dir="${classes.dir}" />
+		</delete>
+		<mkdir dir="${generated}" />
+		<mkdir dir="${generated.src}" />
+		<mkdir dir="${generated.wsdl}" />
+		<mkdir dir="${classes.dir}" />
+		<mkdir dir="release"/>
+	</target>
+
+	<target name="release" depends="clean, compile, create-service, jar" />
+
+	<target name="compile">
+		<javac srcdir="${src.dir}" destdir="${classes.dir}" source="1.7" target="1.7">
+			<classpath refid="class.path" />
+		</javac>
+	</target>
+
+	<target name="create-service">
+		<antcall target="create-ws">
+			<param name="portname" value="{http://schema.df-root.com/geodata}GeodataServicePort" />
+			<param name="servicename" value="{http://schema.df-root.com/geodata}GeodataService" />
+			<param name="classname" value="ss14xmlproject.services.geodata.GeodataService" />
+		</antcall>
+		<antcall target="create-ws">
+			<param name="portname" value="{http://schema.df-root.com/metadata}MetadataServicePort" />
+			<param name="servicename" value="{http://schema.df-root.com/metadata}MetadataService" />
+			<param name="classname" value="ss14xmlproject.services.metadata.MetadataService" />
+		</antcall>
+		<antcall target="create-ws">
+			<param name="portname" value="{http://schema.df-root.com/imagedata}ImagedataServicePort" />
+			<param name="servicename" value="{http://schema.df-root.com/imagedata}ImagedataService" />
+			<param name="classname" value="ss14xmlproject.services.imagedata.ImagedataService" />
+		</antcall>
+	</target>
+
+	<target name="jar">
+<!--		<copy todir="release/lib">
+			<fileset dir="lib" />
+        </copy> -->
+		<jar destfile="release/${jar.file}">
+			<zipfileset dir="${classes.dir}" includes="**/*.*" />
+			<manifest>
+				<attribute name="Main-Class" value="${main-class}"/>
+			</manifest>
+			<zipgroupfileset dir="lib" includes="**/*.jar"/>
+		</jar>	
+	</target>
+
+	<target name="create-ws">
+		<exec executable="${wsgen.exec}">
+			<arg value="-wsdl" />
+			<arg value="-keep" />
+			<arg value="-classpath" />
+			<arg value="${classes.dir}" />
+			<arg value="-r" />
+			<arg value="${generated.wsdl}" />
+			<arg value="-s" />
+			<arg value="${generated.src}" />
+			<arg value="-d" />
+			<arg value="${classes.dir}" />
+			<arg value="-servicename" />
+			<arg value="${servicename}" />
+			<arg value="-portname" />
+			<arg value="${portname}" />
+			<arg value="${classname}" />
+		</exec>
+	</target>
+
+</project>

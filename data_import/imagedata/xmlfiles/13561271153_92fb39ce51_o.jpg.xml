@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<Picture>
+  <FlickerID>13561271153</FlickerID>
+  <Filename>150672.jpg</Filename>
+  <Section id="1">
+    <xValue>173</xValue>
+    <yValue>483</yValue>
+    <Width>985</Width>
+    <Height>994</Height>
+  </Section>
+  <Section id="2">
+    <xValue>1268</xValue>
+    <yValue>465</yValue>
+    <Width>994</Width>
+    <Height>994</Height>
+  </Section>
+  <Section id="3">
+    <xValue>2344</xValue>
+    <yValue>492</yValue>
+    <Width>994</Width>
+    <Height>994</Height>
+  </Section>
+  <Section id="4">
+    <xValue>3430</xValue>
+    <yValue>465</yValue>
+    <Width>976</Width>
+    <Height>1021</Height>
+  </Section>
+  <Section id="5">
+    <xValue>173</xValue>
+    <yValue>1596</yValue>
+    <Width>1012</Width>
+    <Height>1012</Height>
+  </Section>
+  <Section id="6">
+    <xValue>1268</xValue>
+    <yValue>1605</yValue>
+    <Width>985</Width>
+    <Height>976</Height>
+  </Section>
+  <Section id="7">
+    <xValue>2363</xValue>
+    <yValue>1605</yValue>
+    <Width>985</Width>
+    <Height>939</Height>
+  </Section>
+  <Section id="8">
+    <xValue>3430</xValue>
+    <yValue>1605</yValue>
+    <Width>994</Width>
+    <Height>967</Height>
+  </Section>
+  <Section id="9">
+    <xValue>145</xValue>
+    <yValue>2746</yValue>
+    <Width>1012</Width>
+    <Height>976</Height>
+  </Section>
+  <Section id="10">
+    <xValue>1213</xValue>
+    <yValue>2700</yValue>
+    <Width>1003</Width>
+    <Height>994</Height>
+  </Section>
+  <Section id="11">
+    <xValue>2290</xValue>
+    <yValue>2709</yValue>
+    <Width>1003</Width>
+    <Height>985</Height>
+  </Section>
+  <Section id="12">
+    <xValue>3412</xValue>
+    <yValue>2700</yValue>
+    <Width>1012</Width>
+    <Height>1003</Height>
+  </Section>
+</Picture>

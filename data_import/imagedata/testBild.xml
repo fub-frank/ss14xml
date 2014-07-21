@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<Picture>
+  <FlickerID></FlickerID>
+  <Filename></Filename>
+  <Section id="1">
+    <xValue>1</xValue>
+    <yValue>2</yValue>
+    <Height>100</Height>
+    <Width>200</Width>
+  </Section>
+</Picture>

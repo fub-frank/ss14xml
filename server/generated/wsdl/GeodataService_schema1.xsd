@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://schema.df-root.com/geodata" xmlns:tns="http://schema.df-root.com/geodata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="XMLDatabaseException" type="tns:XMLDatabaseException"/>
+
+  <xs:element name="getGeoFences" type="tns:getGeoFences"/>
+
+  <xs:element name="getGeoFencesResponse" type="tns:getGeoFencesResponse"/>
+
+  <xs:complexType name="getGeoFences">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getGeoFencesResponse">
+    <xs:sequence>
+      <xs:element name="Geofences" type="tns:Geofence" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Geofence">
+    <xs:sequence>
+      <xs:element name="flickerid" type="xs:string" minOccurs="0"/>
+      <xs:element name="longitude" type="xs:double"/>
+      <xs:element name="latitude" type="xs:double"/>
+      <xs:element name="radius" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="XMLDatabaseException">
+    <xs:sequence>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://schema.df-root.com/metadata" xmlns:tns="http://schema.df-root.com/metadata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="nothing" type="tns:nothing"/>
+
+  <xs:element name="nothingResponse" type="tns:nothingResponse"/>
+
+  <xs:complexType name="nothing">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="nothingResponse">
+    <xs:sequence/>
+  </xs:complexType>
+</xs:schema>
+

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<Picture>
+  <FlickerID>13561370524</FlickerID>
+  <Filename>158355.jpg</Filename>
+  <Section id="1">
+    <xValue>555</xValue>
+    <yValue>684</yValue>
+    <Width>1051</Width>
+    <Height>1091</Height>
+  </Section>
+  <Section id="2">
+    <xValue>2103</xValue>
+    <yValue>704</yValue>
+    <Width>1061</Width>
+    <Height>1061</Height>
+  </Section>
+  <Section id="3">
+    <xValue>3512</xValue>
+    <yValue>883</yValue>
+    <Width>1031</Width>
+    <Height>892</Height>
+  </Section>
+  <Section id="4">
+    <xValue>972</xValue>
+    <yValue>2341</yValue>
+    <Width>1041</Width>
+    <Height>1071</Height>
+  </Section>
+  <Section id="5">
+    <xValue>2540</xValue>
+    <yValue>2341</yValue>
+    <Width>1051</Width>
+    <Height>1061</Height>
+  </Section>
+</Picture>

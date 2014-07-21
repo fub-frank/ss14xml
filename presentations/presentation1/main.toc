@@ -1,0 +1,4 @@
+\beamer@endinputifotherversion {3.32pt}
+\select@language {english}
+\beamer@sectionintoc {1}{Gruppenmitglieder}{2}{0}{1}
+\beamer@sectionintoc {2}{Projektidee}{3}{0}{2}

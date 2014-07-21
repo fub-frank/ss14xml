@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">XMLProjectApp</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="location_fragment_button_mock_settings">Mock settings</string>
+    <string name="location_fragment_button_get_location">Get location</string>
+    <string name="location_fragment_label_latitude">Latitude:</string>
+    <string name="location_fragment_label_longitude">Longitude:</string>
+    <string name="mock_dialog_close">Close</string>
+    <string name="mock_dialog_toggle">Toggle Mock mode</string>
+    <string name="mock_dialog_set">Set</string>
+    <string name="mock_dialog_longitude">Longitude</string>
+    <string name="mock_dialog_latitude">Latitude</string>
+    <string name="show_random_picture">Show random picture</string>
+    <string name="trigger_random_location">Trigger random location</string>
+    
+
+</resources>

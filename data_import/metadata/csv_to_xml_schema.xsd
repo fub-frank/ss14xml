@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="data">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="item" minOccurs="0" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Photographer" type="xsd:string"/>
+							<xsd:element name="Creator" type="xsd:string"/>
+							<xsd:element name="Title" type="xsd:string"/>
+							<xsd:element name="Place" type="xsd:string"/>
+							<xsd:element name="Systematics" type="xsd:string"/>
+							<xsd:element name="Ownership" type="xsd:string"/>
+							<xsd:element name="File" type="xsd:string"/>
+							<xsd:element name="Count" type="xsd:string"/>
+							<xsd:element name="Date" type="xsd:string"/>
+							<xsd:element name="Credit" type="xsd:string"/>
+							<xsd:element name="Content" type="xsd:string"/>
+							<xsd:element name="Year" type="xsd:string"/>
+							<xsd:element name="OriginalFileName" type="xsd:string"/>
+							<xsd:element name="Flicker_Id" type="xsd:string"/>
+							<xsd:element name="Flicker_T" type="xsd:string"/>
+							<xsd:element name="Flicker_S" type="xsd:string"/>
+							<xsd:element name="Flicker_SQ" type="xsd:string"/>
+							<xsd:element name="Flicker_M" type="xsd:string"/>
+							<xsd:element name="Flicker_O" type="xsd:string"/>
+							<xsd:element name="Flicker_Alias" type="xsd:string"/>
+							<xsd:element name="Flicker_Title" type="xsd:string"/>
+						</xsd:sequence>
+						<xsd:attribute name="id" type="xsd:integer"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
+

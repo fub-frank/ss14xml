@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://schema.df-root.com/imagedata" xmlns:tns="http://schema.df-root.com/imagedata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="AmbiguousFlickerIdException" type="tns:AmbiguousFlickerIdException"/>
+
+  <xs:element name="IOException" type="tns:IOException"/>
+
+  <xs:element name="NoSuchFlickerIdException" type="tns:NoSuchFlickerIdException"/>
+
+  <xs:element name="NoSuchImageException" type="tns:NoSuchImageException"/>
+
+  <xs:element name="XMLDatabaseException" type="tns:XMLDatabaseException"/>
+
+  <xs:element name="getImage" type="tns:getImage"/>
+
+  <xs:element name="getImageInfo" type="tns:getImageInfo"/>
+
+  <xs:element name="getImageInfoResponse" type="tns:getImageInfoResponse"/>
+
+  <xs:element name="getImageResponse" type="tns:getImageResponse"/>
+
+  <xs:complexType name="getImage">
+    <xs:sequence>
+      <xs:element name="filename" type="xs:string" minOccurs="0"/>
+      <xs:element name="number" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImageResponse">
+    <xs:sequence>
+      <xs:element name="Image" type="xs:base64Binary" nillable="true" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="NoSuchImageException">
+    <xs:sequence>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="XMLDatabaseException">
+    <xs:sequence>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImageInfo">
+    <xs:sequence>
+      <xs:element name="flickerId" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getImageInfoResponse">
+    <xs:sequence>
+      <xs:element name="Imageinfo" type="tns:Imageinfo" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Imageinfo">
+    <xs:sequence>
+      <xs:element name="filename" type="xs:string" minOccurs="0"/>
+      <xs:element name="imagecount" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="NoSuchFlickerIdException">
+    <xs:sequence>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AmbiguousFlickerIdException">
+    <xs:sequence>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="IOException">
+    <xs:sequence>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

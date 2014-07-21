@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <xsd:element name="Picture">
+    <xsd:complexType mixed="true">
+      <xsd:choice maxOccurs="unbounded" minOccurs="0">
+        <xsd:element name="FlickerID" type="xsd:string" />
+        <xsd:element name="Filename" type="xsd:string" />
+        <xsd:element name="Section">
+          <xsd:complexType mixed="true">
+            <xsd:choice maxOccurs="unbounded" minOccurs="0">
+              <xsd:element name="xValue" type="xsd:integer" />
+              <xsd:element name="yValue" type="xsd:integer" />
+              <xsd:element name="Height" type="xsd:integer" />
+              <xsd:element name="Width" type="xsd:integer" />
+            </xsd:choice>
+            <xsd:attribute name="id"/>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:choice>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

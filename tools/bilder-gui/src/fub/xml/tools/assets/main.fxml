@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fub.xml.tools.image.GuiController">
+   <children>
+      <MenuBar>
+         <menus>
+            <Menu mnemonicParsing="false" text="Datei">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#onMenuOpenPictures" text="Bilder öffnen" />
+                  <MenuItem fx:id="saveForCurrent" disable="true" mnemonicParsing="false" text="Speichern für aktuelles Bild" />
+                  <MenuItem fx:id="saveForAll" disable="true" mnemonicParsing="false" text="Speichern für alle Bilder" />
+              </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <BorderPane VBox.vgrow="ALWAYS">
+         <center>
+            <SplitPane dividerPositions="0.5" prefHeight="375.0" prefWidth="286.0" BorderPane.alignment="CENTER">
+               <items>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <SplitPane dividerPositions="0.5" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <items>
+                              <BorderPane prefHeight="200.0" prefWidth="200.0">
+                                 <top>
+                                    <Label text="Bilder" BorderPane.alignment="CENTER" />
+                                 </top>
+                                 <center>
+                                    <ListView fx:id="imageList" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                                 </center>
+                              </BorderPane>
+                              <BorderPane prefHeight="200.0" prefWidth="200.0">
+                                 <top>
+                                    <Label text="Bereiche" BorderPane.alignment="CENTER" />
+                                 </top>
+                                 <center>
+                                    <ListView fx:id="rectangleList" onContextMenuRequested="#onContextMenuRequested" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                                 </center>
+                              </BorderPane>
+                           </items>
+                        </SplitPane>
+                     </center>
+                  </BorderPane>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <AnchorPane fx:id="imageAnchorPane" maxWidth="500.0" minWidth="500.0" prefWidth="500.0">
+                           <children>
+                              <ImageView fx:id="imageView" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER" />
+                              <Canvas fx:id="canvas" onMouseDragged="#onCanvasMouseDragged" onMousePressed="#onCanvasMousePressed" onMouseReleased="#onCanvasMouseReleased" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                     </center>
+                  </BorderPane>
+               </items>
+            </SplitPane>
+         </center>
+      </BorderPane>
+   </children>
+</VBox>

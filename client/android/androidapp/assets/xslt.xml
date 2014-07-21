@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:template match="/">
+		<html>
+			<head>
+				<title>Metadaten - Details zum Bild</title>
+				<style type="text/css">
+				    h1 {
+				    	font-family : sans;
+				    	font-size : 20px; 
+				    }
+				    h2 {
+				    	font-family : sans;
+				    	font-size : 16px; 
+				    }
+				    h3 {
+				    	font-family : sans;
+				    	font-size : 12px; 
+				    }
+				    p {
+				    	font-family : sans;
+				    	font-size : 12px;
+				    }
+				    li {
+				    	font-family : sans;
+				    	font-size : 12px;
+				    }
+				    table, table th, table td {
+				    	border : 1px solid gray;
+				    	border-collapse : collapse;
+				    	vertical-align : top;
+				    	padding : 5px;
+				    	margin : 5px;
+				    }
+				</style>
+			</head>
+			<body>
+				<xsl:apply-templates />
+			</body>
+		</html>
+	</xsl:template>
+	
+	<xsl:template match="Metadata">
+		<h1><xsl:value-of select="./title" /></h1>
+		<p>Auf dieser Bildserie sehen Sie:</p>
+		<ul>
+			<xsl:apply-templates select="./contents" />
+		</ul>
+		<h2>Angaben zum Bild</h2>
+		<table>
+			<tr>
+				<th>Credit</th>
+				<td><xsl:value-of select="./credit" /></td>
+			</tr>
+			<tr>
+				<th>Besitzer</th>
+				<td><xsl:value-of select="./ownership" /></td>
+			</tr>
+			<tr>
+				<th>Entstehungsjahr</th>
+				<td><xsl:value-of select="./year" /></td>
+			</tr>
+			<tr>
+				<th>Systematik</th>
+				<td><xsl:value-of select="./systematics" /></td>
+			</tr>
+			<tr>
+				<th>Inventarisiert am</th>
+				<td><xsl:value-of select="./date" /></td>
+			</tr>
+		</table>
+		<h1>Fotografen</h1>
+		<xsl:apply-templates select="./photographers" />
+		<h1>Architekten</h1>
+		<xsl:apply-templates select="./architects" />
+		<h1>Informationen zum Ort</h1>
+		<xsl:apply-templates select="./locations" />
+	</xsl:template>
+	
+	<xsl:template match="content">
+		<li>
+			<xsl:value-of select="." />
+		</li>
+	</xsl:template>
+	
+	<xsl:template match="photographer">
+		<h2>
+			<xsl:value-of select="./firstName" />
+			<xsl:text> </xsl:text>
+			<xsl:value-of select="./lastName" />
+		</h2>
+		<xsl:if test="not(./additionalInfo/shortDescription)">
+			<p>Keine weiteren Informationen zu dieser Person verfügbar</p>
+		</xsl:if>
+		<xsl:if test="./additionalInfo/shortDescription">
+			<xsl:apply-templates select="./additionalInfo" />
+		</xsl:if>
+	</xsl:template>
+	
+	<xsl:template match="architect">
+		<h2>
+			<xsl:value-of select="./firstName" />
+			<xsl:text> </xsl:text>
+			<xsl:value-of select="./lastName" />
+		</h2>
+		<xsl:if test="not(./additionalInfo/shortDescription)">
+			<p>Keine weiteren Informationen zu dieser Person verfügbar</p>
+		</xsl:if>
+		<xsl:if test="./additionalInfo/shortDescription">
+			<xsl:apply-templates select="./additionalInfo" />
+		</xsl:if>
+		<xsl:if test="not(./additionalWorks/work)">
+			<p>Keine weiteren Bauwerke von diesem Architekt bekannt</p>
+		</xsl:if>
+		<xsl:if test="./additionalWorks/work">
+			<xsl:apply-templates select="./additionalWorks" />
+		</xsl:if>
+	</xsl:template>
+	
+	<xsl:template match="additionalInfo">
+		<p><xsl:value-of select="./shortDescription" /></p>
+		<p>
+			<img>
+				<xsl:attribute name="src">
+					<xsl:value-of select="./thumbnail" />
+				</xsl:attribute>
+			</img>
+			<br />
+			<xsl:value-of select="./description" />
+			<br />
+			<strong>Geboren:</strong>
+			<xsl:value-of select="./birthdate" />
+			<br />
+			<strong>Gestorben:</strong>
+			<xsl:value-of select="./deathdate" />
+		</p>
+	</xsl:template>
+	
+	<xsl:template match="additionalWorks">
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Vorschau</th>
+				<th>Wikipedia</th>
+			</tr>
+			<xsl:for-each select="work">
+				<tr>
+					<td>
+						<xsl:value-of select="./name" />
+					</td>
+					<td>
+						<img>
+							<xsl:attribute name="src">
+								<xsl:value-of select="./thumbnail" />
+							</xsl:attribute>
+						</img>
+					</td>
+					<td>
+						<a>
+							<xsl:attribute name="href">http://en.wikipedia.org/w/index.php?curid=<xsl:value-of select="./wikiId" />
+							</xsl:attribute>
+							Mehr Informationen auf Wikipedia anzeigen
+						</a>
+					</td>
+				</tr>
+			</xsl:for-each>
+		</table>
+	</xsl:template>
+	
+	<xsl:template match="locations">
+		<p>Hier wurde das Bild aufgenommen</p>
+		<table>
+			<tr>
+				<th>Stadt</th>
+				<th>Bezirk</th>
+				<th>Straße</th>
+				<th>Beschreibung</th>
+				<th>Vorschau</th>
+				<th>Auf Karte anzeigen</th>
+				<th>Wikipedia</th>
+			</tr>
+			<xsl:for-each select="./location">
+				<tr>
+					<td><xsl:value-of select="./city" /></td>
+					<td><xsl:value-of select="./suburb" /></td>
+					<td><xsl:value-of select="./street" /></td>
+					<xsl:if test="./additionalLocationInfo/comment">
+						<td><xsl:value-of select="./additionalLocationInfo/comment" /></td>
+						<td>
+							<img>
+								<xsl:attribute name="src">
+									<xsl:value-of select="./additionalLocationInfo/thumbnail" />
+								</xsl:attribute>
+							</img>
+						</td>
+						<td>
+							<a>
+								<xsl:attribute name="href">http://maps.google.com/?q=<xsl:value-of select="./additionalLocationInfo/latitude" />,<xsl:value-of select="./additionalLocationInfo/longitude" /></xsl:attribute>
+								Auf Google Maps anzeigen
+							</a>
+						</td>
+						<td>
+							<a>
+								<xsl:attribute name="href">http://en.wikipedia.org/w/index.php?curid=<xsl:value-of select="./additionalLocationInfo/wikiId" /></xsl:attribute>
+								Mehr Informationen auf Wikipedia
+							</a>
+						</td>
+					</xsl:if>
+					<xsl:if test="not(./additionalLocationInfo/comment)">
+						<td>n/a</td>
+						<td>n/a</td>
+						<td>n/a</td>
+						<td>n/a</td>
+					</xsl:if>
+				</tr>
+			</xsl:for-each>
+		</table>
+	</xsl:template>
+</xsl:stylesheet>

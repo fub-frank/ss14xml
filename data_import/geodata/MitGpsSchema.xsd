@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="Foto">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Dateiname" type="xsd:string"/>
+				<xsd:element name="flickerid" type="xsd:integer"/>
+				<xsd:element name="längengrad" type="xsd:float"/>
+                <xsd:element name="breitengrad" type="xsd:float"/>
+                <xsd:element name="Radius" type="xsd:float"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
